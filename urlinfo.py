@@ -57,6 +57,21 @@ elif    (a == 5):
 else:
     print ('link is invalid try again')
 
+cookie_session = input("Do you have cookie session? (Y/N) : ")
+
+if (cookie_session == 'Y'):
+         cookie_session = input("Enter the cookie session: ")
+         headers = {"Cookie": cookie_session}
+else:
+    headers = {}
+
+response = requests.get(url, headers=headers)
+
+if response.status_code == 200:
+    print(response.text)
+else:
+    print(f"Error: {response.status_code}")
+        
 
 exit = input('press enter to exit, have a nice day!' )
 
